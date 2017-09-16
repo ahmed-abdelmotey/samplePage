@@ -1,0 +1,44 @@
+@function remToPx($input, $sizeRem){
+  @return ($input * $sizeRem) + px
+};
+
+@mixin transitionsAll($duration){
+  -webkit-transition: all $duration ease;
+  -moz-transition: all $duration ease;
+  transition: all $duration ease;
+}
+
+@mixin clipPath($polygon){
+  clip-path: $polygon;
+  -webkit-clip-path: $polygon;
+  shape-inside:  $polygon;
+  
+}
+
+@mixin dotedUnderline($style, $color , $width, $size , $baseSize){
+  color: $color; display: inline-block; position:relative;
+  box-shadow: 0 remToPx(6.66667, $size) 0 white, 
+              0 remToPx(10, $size) 0 remToPx(-1.3333, $size) $color;
+  
+  &::after{
+    // content: ".–⋅–⋅–⋅–⋅–⋅–"; display: block; line-height: 0;
+    $dim: remToPx(12, $size);
+
+    position: absolute; color:  $color; top: remToPx(20, $size); height:  $dim;
+    content: "."; display: block; line-height: 0; background-color: white;
+    padding: 0 remToPx(3.33333, $size); left: unquote("calc( 50% - #{($dim/2)} )");
+    font-size:($size * 2) + rem;
+  }  
+}
+
+@mixin absoluteEqualPosition($pos){
+  position: absolute;
+  top: $pos;  left: $pos;  right: $pos;  bottom: $pos;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content};
+  &:-moz-placeholder           {@content};
+  &::-moz-placeholder          {@content};
+  &:-ms-input-placeholder      {@content}; 
+}

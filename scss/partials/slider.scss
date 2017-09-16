@@ -1,0 +1,103 @@
+
+#slider{
+  height: 400px; background-color: $subColor;
+  position: relative; top: -20px; z-index: 3;
+  @include clipPath(polygon(0 0, 100% 0 , 100% 85% ,50%  100%  ,0 85%));
+  @media screen and(max-width: 480px){
+    height: 300px;
+    & .swiper-button-next,
+    & .swiper-button-prev{
+      visibility: hidden;
+    }
+  }
+
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+
+    &::after{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: transparentize($subColor,0.3);
+      
+    }
+  }
+
+  .swiper-slide {
+    font-size: 18px;
+    color:#fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 40px 60px;
+    @media screen and(max-width:480px){
+      padding: 40px 20px;
+    }
+    .title {
+      font-size: 3rem;
+      color:$mainColor;
+      font-weight: 300;
+      display: inline-block;
+      padding: 0 10px 15px;
+      // background-color: transparentize(lighten($subColor, 10%),0.3);
+      text-shadow: $greyAccent 1px 1px 1px;
+      border-bottom: 2px $mainColor solid;
+      border-radius: 5px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+
+      @media screen and(max-width:480px){
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        padding: 10px;
+      
+      }
+    }
+
+    .text {
+        margin: 10px 0;
+      p{
+
+        font-size: 1.5rem;
+        line-height: 2rem;
+        max-width: 400px;
+        margin: auto;
+        @media screen and(max-width:480px){
+          font-size: 1rem;
+          line-height: 1.5rem;
+          
+        }
+      }
+    } 
+
+    .call-to-action{
+      margin: 40px 0;
+      
+      a{
+        @include  transitionsAll(0.3s);
+        padding: 10px;
+        border: 2px white solid;
+        text-decoration: none;
+        color: $textColorMain;
+        background-color: unset;
+        margin: 0 10px;
+        &:hover{
+          background-color: $mainColor;
+          border: 2px $mainColor solid;
+        }
+      }
+      @media screen and(max-width:480px){
+        font-size: 1rem;
+      }
+    }
+  }
+
+}

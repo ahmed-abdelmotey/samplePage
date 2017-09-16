@@ -1,0 +1,47 @@
+
+footer{
+  background-color: $mainColor;
+  color: $textColorMain;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    
+    p{
+      max-width: none;
+      text-align: right;
+      @media screen and (max-width : 480px){ max-width: 120px;}
+    }
+    ul{
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      padding-left: 0;
+
+      @media screen and (max-width : 480px){
+        flex-direction: column;
+        max-width: 200px;
+      }
+      
+      li{
+        list-style-position: inside;
+        padding: 0 10px;
+        max-width: none;
+        &:not(:first-child){
+          border-left: 1px white solid;
+          @media screen and (max-width : 480px){ border-left: none; }
+        }
+        @media screen and (max-width : 480px){ text-align: left; padding: 0 0 5px}
+        
+        a{
+          text-decoration: none;
+          color: $textColorMain;
+
+          &:hover{
+            color:black;
+          }
+        }
+      }
+    }
+  }
+}

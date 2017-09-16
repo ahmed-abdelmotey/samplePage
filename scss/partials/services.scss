@@ -1,0 +1,74 @@
+
+#used-services{
+  text-align: center;
+  #services{
+    padding: 20px 0; display: flex; justify-content: space-around;
+    flex-flow: row; flex-wrap: wrap;
+  }
+}
+
+#categories-tabs{
+  padding: 130px 0 50px;
+  background-color: transparentize( $greyAccent , 0.25);
+  background-image:  url(../img/categories.jpg);
+  background-size: cover; background-blend-mode: screen;
+  
+  @include clipPath(polygon(0 0, 50% 10%, 100% 0, 100% 100% , 0 100% ));
+  @media screen and (max-width:480px){
+    @include clipPath(polygon(0 0, 50% 5%, 100% 0, 100% 100% , 0 100% ));
+    padding: 50px 0 10px;
+  }
+  #categories{
+    display: flex; margin:5px auto 30px; padding:0; flex-direction: row-reverse;
+      
+    .category{
+      list-style: none; list-style-position:inside; flex: 0 0 25%; 
+      margin: 1px; background-color: $mainColor; height: 150px; color: white;
+
+      @media screen and (max-width:480px){ height: 70px; }
+      
+      &.mixitup-control-active{
+
+        background-color: #fff; color: $mainColor; position: relative;
+        
+        .category-icon svg{
+          fill: $mainColor; stroke: $mainColor;
+        }
+
+      }
+
+      .category-icon{
+        margin-top: 10px; width: 80px; height: 80px; margin: 20px auto 0;
+        
+        @media screen and(max-width:480px){
+          display: none;
+        }
+
+        svg{
+          width: 80%; height: 80%; padding: 10%; bottom: 50px; position: relative;
+          fill: white; stroke: white; display: block; z-index: 40;
+        }
+      }
+
+      p{
+        font-size: 1em; text-align: center;
+        margin: 10px auto; max-width: 80%;
+
+        @media screen and(max-width:480px) {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+  #all-services{
+    display: flex; flex-flow:row-reverse; flex-wrap: wrap; 
+
+    justify-content: center;
+    .service{ 
+      flex: 0 0 25%; min-width: 25%; text-align: center; 
+      @media screen and (max-width:480px){ min-width: 30%; }
+      
+    }
+
+  }
+}

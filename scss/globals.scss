@@ -1,0 +1,13 @@
+
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.container{ width: 90%;  margin: auto;  max-width: 1200px; }
+.wow { visibility: hidden; }
+
+*{ font-family: 'El Messiri', sans-serif; }
+
+html{
+  font-size: $mainFontSize;
+  @media screen and(max-width: 480px){ font-size: $mobileFontSize; }
+}
+
+#wrapper{ margin: auto; }
