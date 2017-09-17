@@ -12,7 +12,7 @@
     display: inline-block; background-color: $greyAccent;
     width: 120px; height: 120px; position: relative;
 
-    img,svg{
+    svg{
       fill: black; stroke: black; display: block; z-index: 40;
       width: 50%; height: 50%; padding: 25%; position: relative;
     }
